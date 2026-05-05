@@ -174,7 +174,8 @@ jobs:
           # ==========================================
           # 自选股配置
           # ==========================================
-          STOCK_LIST: ${{ vars.STOCK_LIST || secrets.STOCK_LIST || '600519' }}
+          # 默认回退示例包含 A 股 + 美股 BR（Broadridge）；若仓库已配置 vars/secrets.STOCK_LIST，则仍以运行时配置为准。
+          STOCK_LIST: ${{ vars.STOCK_LIST || secrets.STOCK_LIST || '600519,BR' }}
           MARKET_REVIEW_REGION: ${{ vars.MARKET_REVIEW_REGION || secrets.MARKET_REVIEW_REGION || 'cn' }}
           
           # ==========================================
